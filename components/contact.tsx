@@ -7,7 +7,7 @@ import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Coffee } from "lucide-react"
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -28,16 +28,28 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
 
-    // Reset form
-    setFormState({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
-
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formState)
-  }
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactInfo = [
     { icon: <Mail className="h-5 w-5" />, text: "itsaliasgar18@gmail.com" },
@@ -92,27 +104,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="flex space-x-4"
-              >
-                {["github", "twitter", "linkedin", "dribbble"].map((platform, index) => (
-                  <motion.a
-                    key={platform}
-                    href="#"
-                    whileHover={{ y: -5 }}
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center"
-                  >
-                    <img
-                      src={`/placeholder.svg?height=20&width=20&text=${platform}`}
-                      alt={platform}
-                      className="w-5 h-5"
-                    />
-                  </motion.a>
-                ))}
-              </motion.div>
+              {/* Removed the social media buttons that were here */}
             </motion.div>
 
             <motion.div
@@ -189,6 +181,25 @@ export default function Contact() {
               </form>
             </motion.div>
           </div>
+          
+          {/* Buy Me a Coffee Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col items-center mt-8 space-y-4"
+          >
+            <p className="text-muted-foreground text-lg">Like my work? Support me with a coffee ☕</p>
+            <a 
+              href="https://www.buymeacoffee.com/aliasgarsogiawala" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-primary text-black font-medium hover:bg-[#FFDD00]/90 transition-colors"
+            >
+              <Coffee className="mr-2 h-5 w-5" />
+              Buy me a coffee
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

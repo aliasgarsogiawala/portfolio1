@@ -52,9 +52,9 @@ export default function Navbar() {
                 whileHover={{ rotate: 10 }}
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold"
               >
-                P
+                AS
               </motion.div>
-              <span className="font-bold text-xl">Ali</span>
+              <span className="font-bold text-xl">Aliasgar Sogiawala</span>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-6">

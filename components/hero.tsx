@@ -211,7 +211,7 @@ export default function Hero() {
             variants={itemVariants}
             className="max-w-[700px] text-muted-foreground md:text-xl"
           >
-            I create beautiful, functional, and accessible web experiences with modern technologies.
+            I create Dope, functional, and accessible web experiences with modern technologies.
           </motion.p>
           
           <motion.div 

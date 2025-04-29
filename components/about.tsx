@@ -21,7 +21,7 @@ export default function About() {
             className="relative"
           >
             <div className="relative aspect-square overflow-hidden rounded-lg">
-              <img src="/placeholder.svg?height=600&width=600" alt="Profile" className="object-cover w-full h-full" />
+              <img src="/about.jpeg?height=600&width=600" alt="Profile" className="object-cover w-full h-full" />
             </div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -29,7 +29,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg"
             >
-              <p className="text-lg font-bold">3 Years Experience</p>
+              <p className="text-lg font-bold">3+ Years Experience</p>
             </motion.div>
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function About() {
           >
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
-              <p className="text-muted-foreground">Frontend Developer & UI/UX Enthusiast</p>
+              <p className="text-muted-foreground">Full Stack Developer & UI/UX Enthusiast</p>
             </div>
 
             <motion.div
@@ -51,12 +51,12 @@ export default function About() {
               className="space-y-4"
             >
               <p>
-                I'm a passionate web developer with a focus on creating beautiful, functional, and user-friendly
-                applications. With over 5 years of experience in the field, I've worked on a variety of projects from
+                I'm a 19 year old  developer with a focus on creating problem solving, functional, and user-friendly
+                web applications , softwares and mobile apps. With over 5 years of experience in the field, I've worked on a variety of projects from
                 small business websites to complex web applications.
               </p>
               <p>
-                My expertise lies in modern frontend technologies like React, Next.js, and TypeScript, combined with a
+                My expertise lies in modern frontend technologies like React, Next.js, and TypeScript, Backend Technologies like Python , MySQL and MongoDB combined with a
                 strong foundation in UI/UX design principles. I believe in writing clean, maintainable code and creating
                 intuitive user experiences.
               </p>
@@ -71,9 +71,7 @@ export default function About() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Button size="lg">
-                <Download className="mr-2 h-4 w-4" /> Download Resume
-              </Button>
+              
             </motion.div>
           </motion.div>
         </div>
