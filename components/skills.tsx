@@ -10,14 +10,24 @@ const skills = [
   { name: "CSS", icon: "css3" },
   { name: "JavaScript", icon: "javascript" },
   { name: "React", icon: "react" },
-  { name: "Next.js", icon: "nextjs" },
+  { name: "Next.js", icon: "nextdotjs" }, // fixed
   { name: "TypeScript", icon: "typescript" },
-  { name: "Node.js", icon: "nodejs" },
+  { name: "Node.js", icon: "nodedotjs" },
+  { name: "Python", icon: "python" },
+  { name: "Flask", icon: "flask" },
+  { name: "Bootstrap", icon: "bootstrap" },
+  { name: "Django", icon: "django" },
   { name: "Tailwind CSS", icon: "tailwindcss" },
-  { name: "Framer Motion", icon: "framer" },
+  // { name: "Shadcn UI", icon: "shadcnui" }, // removed, not available
+  { name: "Figma", icon: "figma" },
+  { name: "Canva", icon: "canva" },
+  { name: "Framer Motion", icon: "framer" }, // fixed
   { name: "Git", icon: "git" },
   { name: "GitHub", icon: "github" },
-  { name: "VS Code", icon: "vscode" },
+  { name: "SQL", icon: "sqlite" }, // Using sqlite as a general SQL icon
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "Vercel", icon: "vercel" },
+  { name: "AWS", icon: "amazon" },
 ]
 
 export default function Skills() {
@@ -54,7 +64,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
+    <section id="skills" className="py-20 relative overflow-hidden bg-gray-900">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="space-y-12">
           <motion.div

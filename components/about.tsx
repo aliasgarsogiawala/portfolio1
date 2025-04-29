@@ -29,7 +29,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg"
             >
-              <p className="text-lg font-bold">5+ Years Experience</p>
+              <p className="text-lg font-bold">3 Years Experience</p>
             </motion.div>
           </motion.div>
 

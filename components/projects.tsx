@@ -12,32 +12,24 @@ import { useRef } from "react"
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Zillionite: Wealth Creation Platform",
     description:
-      "A full-featured e-commerce platform with payment processing, user authentication, and product management.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    demoLink: "#",
-    githubLink: "#",
+      "Zillionite is a comprehensive wealth creation and management platform designed to guide users on their journey to financial prosperity.",
+    image: "/zil.png?height=400&width=600",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Razorpay"],
+    demoLink: "https://zillionite.com",
+    githubLink: "https://github.com/aliasgarsogiawala",
   },
   {
     id: 2,
-    title: "Social Media Dashboard",
-    description: "A comprehensive dashboard for social media analytics with real-time data visualization.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "D3.js", "Firebase", "Material UI"],
-    demoLink: "#",
-    githubLink: "#",
+    title: "Tourist Safety Website",
+    description: "A website for tourists to avoid getting scammed including features like emergency sos , cab fare estimation , chatroom , etc.",
+    image: "/ts.png?height=400&width=600",
+    tags: ["Next.js", "Tailwind css", "Clerk", "Typescript"],
+    demoLink: "https://toursafe.in",
+    githubLink: "https://github.com/aliasgarsogiawala/toursafe",
   },
-  {
-    id: 3,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Vue.js", "Node.js", "MongoDB", "Socket.io"],
-    demoLink: "#",
-    githubLink: "#",
-  },
+  
 ]
 
 export default function Projects() {

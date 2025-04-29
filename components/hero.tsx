@@ -2,22 +2,19 @@
 
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Instagram } from "lucide-react"
 import gsap from "gsap"
-import { TextPlugin } from "gsap/TextPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
+import { Github, Linkedin, Mail } from "lucide-react"
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
-  const nameRef = useRef<HTMLSpanElement>(null)
-  const descriptionRef = useRef<HTMLParagraphElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null)
   const particlesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Register GSAP plugins
-    gsap.registerPlugin(TextPlugin, ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger)
 
     // Create particles
     const particlesContainer = particlesRef.current
@@ -52,46 +49,7 @@ export default function Hero() {
       }
     }
 
-    // Text animation timeline
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
-
-    tl.from(textRef.current, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-    })
-
-    tl.to(
-      nameRef.current,
-      {
-        duration: 1.5,
-        text: { value: "Aliasgar Sogiawala", delimiter: "" },
-        ease: "none",
-      },
-      "-=0.5",
-    )
-
-    tl.from(
-      descriptionRef.current,
-      {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-      },
-      "-=0.3",
-    )
-    
-    tl.from(
-      aboutRef.current,
-      {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-      },
-      "-=0.1",
-    )
-
-    // Scroll animation
+    // Only keep scroll animation with GSAP
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
@@ -103,12 +61,47 @@ export default function Hero() {
       ease: "none",
     })
 
+    // Add floating tech icons
+    const techIconsContainer = document.createElement("div")
+    techIconsContainer.className = "absolute inset-0 pointer-events-none"
+    heroRef.current?.appendChild(techIconsContainer)
+    
+    const techIcons = ["react", "nextdotjs", "typescript", "tailwindcss","git","framer","canva","figma","javascript","python"]
+    
+    techIcons.forEach((icon, index) => {
+      const iconElement = document.createElement("div")
+      iconElement.className = "absolute opacity-20"
+      iconElement.innerHTML = `<img src="https://cdn.simpleicons.org/${icon}/currentColor" alt="${icon}" class="w-12 h-12" />`
+      
+      // Random position
+      iconElement.style.left = `${Math.random() * 80 + 10}%`
+      iconElement.style.top = `${Math.random() * 80 + 10}%`
+      
+      techIconsContainer.appendChild(iconElement)
+      
+      // Animate with GSAP
+      gsap.to(iconElement, {
+        y: Math.random() * 100 - 50,
+        x: Math.random() * 100 - 50,
+        rotation: Math.random() * 360,
+        duration: Math.random() * 15 + 10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: index * 0.5,
+      })
+    })
+    
     return () => {
       // Clean up animations
       if (particlesRef.current) {
         gsap.killTweensOf(particlesRef.current.children)
       }
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      if (techIconsContainer) {
+        gsap.killTweensOf(techIconsContainer.children)
+        techIconsContainer.remove()
+      }
     }
   }, [])
 
@@ -118,7 +111,7 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0.3,
       },
     },
@@ -133,6 +126,7 @@ export default function Hero() {
         type: "spring",
         stiffness: 100,
         damping: 10,
+        duration: 0.8,
       },
     },
   }
@@ -152,6 +146,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:50px_50px]" />
         <div ref={particlesRef} className="absolute inset-0 overflow-hidden" />
 
+        {/* Enhanced background elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.1)_0,transparent_70%)]" />
+        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
@@ -164,6 +161,14 @@ export default function Hero() {
           transition={{ duration: 2, delay: 0.5 }}
           className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
         />
+        
+        {/* Add an additional glow */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.3 }}
+          transition={{ duration: 2, delay: 1 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="container px-4 md:px-6 z-10">
@@ -173,19 +178,37 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center text-center space-y-6"
         >
-          <motion.div variants={itemVariants} ref={textRef} className="overflow-hidden">
+          {/* Add profile image */}
+          <motion.div 
+            variants={itemVariants}
+            className="mb-6 overflow-hidden rounded-full border-4 border-primary/30"
+          >
+            <img 
+              src="/pfp.jpeg" 
+              alt="Aliasgar Sogiawala" 
+              className="w-32 h-32 md:w-40 md:h-40 object-cover"
+            />
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="overflow-hidden">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              <span className="text-primary">Hello, I&apos;m </span>
-              <span
-                ref={nameRef}
+              <motion.span 
+                variants={itemVariants}
+                className="text-primary"
+              >
+                Hello, I&apos;m{" "}
+              </motion.span>
+              <motion.span
+                variants={itemVariants}
                 className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500"
-              ></span>
+              >
+                Aliasgar Sogiawala
+              </motion.span>
             </h1>
           </motion.div>
 
           <motion.p
             variants={itemVariants}
-            ref={descriptionRef}
             className="max-w-[700px] text-muted-foreground md:text-xl"
           >
             I create beautiful, functional, and accessible web experiences with modern technologies.
@@ -193,18 +216,33 @@ export default function Hero() {
           
           <motion.div 
             variants={itemVariants}
-            ref={aboutRef}
-            className="max-w-[800px] text-foreground/80 md:text-lg mt-6 bg-background/30 p-6 rounded-lg backdrop-blur-sm border border-border/20"
+            className="mt-8"
           >
-            <p className="mb-4">
-              I'm a passionate full-stack developer with expertise in React, Next.js, and modern JavaScript frameworks. 
-              With 5+ years of experience building web applications, I focus on creating performant, accessible, and 
-              visually appealing digital experiences.
-            </p>
-            <p>
-              My approach combines technical excellence with creative problem-solving. I'm dedicated to writing clean, 
-              maintainable code and staying current with the latest web technologies and best practices.
-            </p>
+            <Link
+              href="#about"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Get to know me
+            </Link>
+          </motion.div>
+
+          {/* Add social media links */}
+          <motion.div
+            variants={itemVariants}
+            className="flex space-x-4 mt-6"
+          >
+            <a href="https://github.com/aliasgarsogiawala" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Github className="w-6 h-6" />
+            </a>
+            <a href="https://www.linkedin.com/in/aliasgar-sogiawala-09b24a1b8/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="https://instagram.com/aliasgar.sogiawala" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a href="mailto:itsaliasgar@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <Mail className="w-6 h-6" />
+            </a>
           </motion.div>
         </motion.div>
       </div>
