@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Link from "next/link"
 
 const projects = [
   {
@@ -154,9 +155,15 @@ export default function Projects() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex justify-center"
           >
-            <Button size="lg" variant="outline">
+            <Link 
+              href="https://github.com/aliasgarsogiawala" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              <Github className="mr-2 h-5 w-5" />
               View All Projects
-            </Button>
+            </Link>
           </motion.div>
         </div>
       </div>
