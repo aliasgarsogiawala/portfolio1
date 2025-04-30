@@ -30,6 +30,15 @@ const projects = [
     demoLink: "https://toursafe.in",
     githubLink: "https://github.com/aliasgarsogiawala/toursafe",
   },
+  {
+    id: 3,
+    title: "Purchase Order Generator",
+    description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
+    image: "/po.png?height=400&width=600",
+    tags: ["React.js", "Css", "jsPDF", "Javascript"],
+    demoLink: "https://purchase-order-gen.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
+  },
   
 ]
 
