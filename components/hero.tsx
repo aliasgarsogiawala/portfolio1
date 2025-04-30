@@ -184,7 +184,7 @@ export default function Hero() {
             className="mb-6 overflow-hidden rounded-full border-4 border-primary/30"
           >
             <img 
-              src="/pfp.jpeg" 
+              src="/about.jpeg" 
               alt="Aliasgar Sogiawala" 
               className="w-32 h-32 md:w-40 md:h-40 object-cover"
             />
