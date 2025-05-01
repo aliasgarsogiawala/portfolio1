@@ -19,7 +19,7 @@ const projects = [
     image: "/zil.png?height=400&width=600",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Razorpay"],
     demoLink: "https://zillionite.com",
-    githubLink: "https://github.com/aliasgarsogiawala",
+    githubLink: "https://aliasgar.vercel.app/private-repo",
   },
   {
     id: 2,
