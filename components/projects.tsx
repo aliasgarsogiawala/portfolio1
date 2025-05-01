@@ -39,6 +39,15 @@ const projects = [
     demoLink: "https://purchase-order-gen.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
   },
+  {
+    id: 4,
+    title: "Multipurpose Website - React ",
+    description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
+    image: "/react.png?height=400&width=600",
+    tags: ["React.js", "Css", "Html", "Javascript"],
+    demoLink: "https://react-multipurpose.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
+  },
   
 ]
 
