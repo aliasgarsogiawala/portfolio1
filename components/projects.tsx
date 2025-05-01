@@ -54,7 +54,7 @@ const projects = [
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
     tags: ["Python" , "BeautifulSoup","Web Scrapping"],
-    demoLink:"https://github.com/aliasgarsogiawala",
+    demoLink:"https://github.com/aliasgarsogiawala/Codes",
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
   },
   
