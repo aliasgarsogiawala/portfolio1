@@ -48,6 +48,15 @@ const projects = [
     demoLink: "https://react-multipurpose.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
+  {
+    id: 5,
+    title: "Mini Python Projects",
+    description: "Python Mini Projects and Mini Games.",
+    image: "/python.png?height=400&width=600",
+    tags: ["Python" , "BeautifulSoup","Web Scrapping"],
+    demoLink:"https://github.com/aliasgarsogiawala",
+    githubLink: "https://github.com/aliasgarsogiawala/Codes"
+  },
   
 ]
 
