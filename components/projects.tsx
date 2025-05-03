@@ -41,6 +41,15 @@ const projects = [
   },
   {
     id: 4,
+    title: "GitHub Last 3 Commits",
+    description: "A place where you can fetch your or anyones last 3 public repo commits and it also provides you with a md code for you to embed it in your README.md.",
+    image: "/l3.png?height=400&width=600",
+    tags: ["Vercel Edge API","GitHub API","Next.js", "Tailwind Css"],
+    demoLink: "https://last-3-commits.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
+  },
+  {
+    id: 5,
     title: "Multipurpose Website - React ",
     description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
     image: "/react.png?height=400&width=600",
@@ -49,7 +58,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
   {
-    id: 5,
+    id: 6,
     title: "Mini Python Projects",
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
