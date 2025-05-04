@@ -36,7 +36,7 @@ const experiences: Experience[] = [
     period: "Feb 2025 - April 2025",
     description: "Single Handedly developed , maintained the entire Zillionite website from scratch. Consisting of Frontend , Backend , Hosting , Database , Payment Integration",
     skills: ["Next.js", "Typescript", "Tailwind Css", "MongoDB", "Razorpay", "OpenAI","Google Search Console"],
-    logo: "/Circular-Logo.png" // Add a placeholder or actual logo
+    logo: "/Circular-Logo.png"
   },
   
 ]
@@ -44,6 +44,96 @@ const experiences: Experience[] = [
 export default function Experience() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }
+
+  const timelineVariants = {
+    hidden: { height: 0 },
+    visible: { 
+      height: "100%",
+      transition: { 
+        duration: 1.5,
+        ease: "easeInOut"
+      }
+    }
+  }
+
+  const dotVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { 
+        type: "spring",
+        stiffness: 300,
+        damping: 15,
+        delay: 0.2
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: (isEven) => ({ 
+      x: isEven ? 50 : -50, 
+      opacity: 0,
+      rotateY: isEven ? 10 : -10
+    }),
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      rotateY: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+        delay: 0.4
+      }
+    }
+  }
+
+  const logoVariants = {
+    hidden: { scale: 0, rotate: -30 },
+    visible: { 
+      scale: 1, 
+      rotate: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 200,
+        damping: 10,
+        delay: 0.6
+      }
+    }
+  }
+
+  const skillsVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        staggerChildren: 0.1,
+        delayChildren: 0.8
+      }
+    }
+  }
+
+  const skillItemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 150 }
+    }
+  }
 
   return (
     <section id="experience" className="py-20 bg-background">
@@ -62,31 +152,48 @@ export default function Experience() {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border"></div>
+            {/* Timeline line with animation */}
+            <motion.div 
+              className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border origin-top"
+              variants={timelineVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            />
 
             {/* Experience items */}
-            <div className="space-y-12">
-              {experiences.map((exp, index) => (
+            <motion.div 
+              className="space-y-12"
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
+              {experiences.map((exp, index) => {
+                const isEven = index % 2 === 0;
+                return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  custom={isEven}
+                  variants={cardVariants}
                   className={`relative flex flex-col md:flex-row ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
+                    isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background"></div>
+                  {/* Timeline dot with animation */}
+                  <motion.div 
+                    className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background z-10"
+                    variants={dotVariants}
+                  />
 
                   {/* Content */}
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"} pl-10 md:pl-0`}>
+                  <div className={`md:w-1/2 ${isEven ? "md:pl-12" : "md:pr-12"} pl-10 md:pl-0`}>
                     <div className="bg-card p-6 rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-shadow">
                       <div className="flex items-center gap-4 mb-4">
-                        {/* Company Logo */}
+                        {/* Company Logo with animation */}
                         {exp.logo && (
-                          <div className="flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-background/50 p-1 border border-border/50">
+                          <motion.div 
+                            className="flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-background/50 p-1 border border-border/50"
+                            variants={logoVariants}
+                          >
                             <Image 
                               src={exp.logo} 
                               alt={`${exp.company} logo`} 
@@ -94,7 +201,7 @@ export default function Experience() {
                               height={64}
                               className="w-full h-full object-contain"
                             />
-                          </div>
+                          </motion.div>
                         )}
                         
                         <div className="flex-1">
@@ -114,18 +221,25 @@ export default function Experience() {
                       </div>
                       
                       <p className="mb-4 text-muted-foreground">{exp.description}</p>
-                      <div className="flex flex-wrap gap-2">
+                      
+                      {/* Skills with staggered animation */}
+                      <motion.div 
+                        className="flex flex-wrap gap-2"
+                        variants={skillsVariants}
+                      >
                         {exp.skills.map((skill) => (
-                          <Badge key={skill} variant="secondary">
-                            {skill}
-                          </Badge>
+                          <motion.div key={skill} variants={skillItemVariants}>
+                            <Badge variant="secondary">
+                              {skill}
+                            </Badge>
+                          </motion.div>
                         ))}
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
+              )})}
+            </motion.div>
           </div>
         </div>
       </div>
