@@ -5,6 +5,7 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Badge } from "@/components/ui/badge"
 import { BriefcaseIcon, CalendarIcon } from "lucide-react"
+import Image from "next/image"
 
 // Define the experience data structure
 interface Experience {
@@ -14,34 +15,30 @@ interface Experience {
   period: string
   description: string
   skills: string[]
+  logo?: string // Make logo optional
 }
 
 // Sample experience data - replace with your actual work experience
 const experiences: Experience[] = [
   {
-    title: "Senior Frontend Developer",
-    company: "Tech Solutions Inc.",
+    title: "Backend , Web Developer & SEO",
+    company: "Overtures Infotech.",
     location: "Mumbai, India",
-    period: "Jan 2022 - Present",
-    description: "Leading the frontend development team in building responsive and accessible web applications. Implemented modern UI/UX designs and improved performance metrics by 40%.",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"]
+    period: "May 2023 - July 2023",
+    description: "Checked for and fixed bugs in websites , embedded websites in apps , made chatbots and did SEO through Google Search Console.",
+    skills: ["Python", "SEO", "OpenAI", "Html/Css"],
+    logo: "/oi.png"
   },
   {
-    title: "Web Developer",
-    company: "Digital Creations",
+    title: "Full Stack Developer",
+    company: "Zillionite",
     location: "Mumbai, India",
-    period: "Jun 2020 - Dec 2021",
-    description: "Developed and maintained client websites using modern JavaScript frameworks. Collaborated with designers to implement responsive designs and interactive features.",
-    skills: ["JavaScript", "React", "CSS", "Node.js"]
+    period: "Feb 2025 - April 2025",
+    description: "Single Handedly developed , maintained the entire Zillionite website from scratch. Consisting of Frontend , Backend , Hosting , Database , Payment Integration",
+    skills: ["Next.js", "Typescript", "Tailwind Css", "MongoDB", "Razorpay", "OpenAI","Google Search Console"],
+    logo: "/Circular-Logo.png" // Add a placeholder or actual logo
   },
-  {
-    title: "Junior Developer",
-    company: "StartUp Innovations",
-    location: "Pune, India",
-    period: "Jan 2019 - May 2020",
-    description: "Assisted in developing web applications and implementing UI components. Participated in code reviews and testing procedures.",
-    skills: ["HTML", "CSS", "JavaScript", "jQuery"]
-  }
+  
 ]
 
 export default function Experience() {
@@ -86,19 +83,36 @@ export default function Experience() {
                   {/* Content */}
                   <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"} pl-10 md:pl-0`}>
                     <div className="bg-card p-6 rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold">{exp.title}</h3>
-                        <Badge variant="outline" className="text-xs">
-                          <CalendarIcon className="mr-1 h-3 w-3" />
-                          {exp.period}
-                        </Badge>
+                      <div className="flex items-center gap-4 mb-4">
+                        {/* Company Logo */}
+                        {exp.logo && (
+                          <div className="flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-background/50 p-1 border border-border/50">
+                            <Image 
+                              src={exp.logo} 
+                              alt={`${exp.company} logo`} 
+                              width={64} 
+                              height={64}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        )}
+                        
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold">{exp.title}</h3>
+                          <div className="flex items-center text-muted-foreground">
+                            <BriefcaseIcon className="mr-2 h-4 w-4" />
+                            <span className="font-medium">{exp.company}</span>
+                          </div>
+                        </div>
                       </div>
+                      
                       <div className="flex items-center text-muted-foreground mb-4">
-                        <BriefcaseIcon className="mr-2 h-4 w-4" />
-                        <span className="font-medium">{exp.company}</span>
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        <span>{exp.period}</span>
                         <span className="mx-2">•</span>
                         <span>{exp.location}</span>
                       </div>
+                      
                       <p className="mb-4 text-muted-foreground">{exp.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {exp.skills.map((skill) => (
