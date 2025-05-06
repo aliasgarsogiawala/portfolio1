@@ -13,29 +13,23 @@ export default function Hero() {
   const particlesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger)
 
-    // Create particles
     const particlesContainer = particlesRef.current
     if (particlesContainer) {
       for (let i = 0; i < 50; i++) {
         const particle = document.createElement("div")
         particle.className = "absolute rounded-full bg-primary/20"
 
-        // Random size between 4px and 20px
         const size = Math.random() * 16 + 4
         particle.style.width = `${size}px`
         particle.style.height = `${size}px`
 
-        // Random position
         particle.style.left = `${Math.random() * 100}%`
         particle.style.top = `${Math.random() * 100}%`
 
-        // Add to container
         particlesContainer.appendChild(particle)
 
-        // Animate with GSAP
         gsap.to(particle, {
           x: Math.random() * 200 - 100,
           y: Math.random() * 200 - 100,
@@ -49,7 +43,6 @@ export default function Hero() {
       }
     }
 
-    // Only keep scroll animation with GSAP
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
@@ -61,7 +54,6 @@ export default function Hero() {
       ease: "none",
     })
 
-    // Add floating tech icons
     const techIconsContainer = document.createElement("div")
     techIconsContainer.className = "absolute inset-0 pointer-events-none"
     heroRef.current?.appendChild(techIconsContainer)
@@ -73,13 +65,11 @@ export default function Hero() {
       iconElement.className = "absolute opacity-20"
       iconElement.innerHTML = `<img src="https://cdn.simpleicons.org/${icon}/currentColor" alt="${icon}" class="w-12 h-12" />`
       
-      // Random position
       iconElement.style.left = `${Math.random() * 80 + 10}%`
       iconElement.style.top = `${Math.random() * 80 + 10}%`
       
       techIconsContainer.appendChild(iconElement)
       
-      // Animate with GSAP
       gsap.to(iconElement, {
         y: Math.random() * 100 - 50,
         x: Math.random() * 100 - 50,
@@ -93,7 +83,6 @@ export default function Hero() {
     })
     
     return () => {
-      // Clean up animations
       if (particlesRef.current) {
         gsap.killTweensOf(particlesRef.current.children)
       }
@@ -105,7 +94,6 @@ export default function Hero() {
     }
   }, [])
 
-  // Framer Motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -141,12 +129,10 @@ export default function Hero() {
         backgroundPosition: "0% 0%",
       }}
     >
-      {/* Animated background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:50px_50px]" />
         <div ref={particlesRef} className="absolute inset-0 overflow-hidden" />
 
-        {/* Enhanced background elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.1)_0,transparent_70%)]" />
         
         <motion.div
@@ -162,7 +148,6 @@ export default function Hero() {
           className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
         />
         
-        {/* Add an additional glow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.3 }}
@@ -178,7 +163,6 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center text-center space-y-6"
         >
-          {/* Add profile image */}
           <motion.div 
             variants={itemVariants}
             className="mb-6 overflow-hidden rounded-full border-4 border-primary/30"
@@ -226,7 +210,6 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* Add social media links */}
           <motion.div
             variants={itemVariants}
             className="flex space-x-4 mt-6"

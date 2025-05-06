@@ -4,13 +4,12 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 
-// Define skills with their corresponding icons
 const skills = [
   { name: "HTML", icon: "html5" },
   { name: "CSS", icon: "css3" },
   { name: "JavaScript", icon: "javascript" },
   { name: "React", icon: "react" },
-  { name: "Next.js", icon: "nextdotjs" }, // fixed
+  { name: "Next.js", icon: "nextdotjs" },
   { name: "TypeScript", icon: "typescript" },
   { name: "Node.js", icon: "nodedotjs" },
   { name: "Python", icon: "python" },
@@ -18,13 +17,12 @@ const skills = [
   { name: "Bootstrap", icon: "bootstrap" },
   { name: "Django", icon: "django" },
   { name: "Tailwind CSS", icon: "tailwindcss" },
-  // { name: "Shadcn UI", icon: "shadcnui" }, // removed, not available
   { name: "Figma", icon: "figma" },
   { name: "Canva", icon: "canva" },
-  { name: "Framer Motion", icon: "framer" }, // fixed
+  { name: "Framer Motion", icon: "framer" }, 
   { name: "Git", icon: "git" },
   { name: "GitHub", icon: "github" },
-  { name: "SQL", icon: "sqlite" }, // Using sqlite as a general SQL icon
+  { name: "SQL", icon: "sqlite" }, 
   { name: "MongoDB", icon: "mongodb" },
   { name: "Vercel", icon: "vercel" },
   { name: "AWS", icon: "amazon" },
@@ -35,7 +33,6 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [isClient, setIsClient] = useState(false)
 
-  // Set isClient to true once component mounts
   useEffect(() => {
     setIsClient(true)
   }, [])
@@ -79,7 +76,6 @@ export default function Skills() {
             </p>
           </motion.div>
 
-          {/* Skills grid */}
           {isClient && (
             <motion.div
               variants={containerVariants}

@@ -104,7 +104,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Removed the social media buttons that were here */}
             </motion.div>
 
             <motion.div
@@ -182,7 +181,6 @@ export default function Contact() {
             </motion.div>
           </div>
           
-          {/* Buy Me a Coffee Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

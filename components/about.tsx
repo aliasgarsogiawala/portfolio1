@@ -3,8 +3,6 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
 
 export default function About() {
   const ref = useRef(null)

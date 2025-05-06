@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import { BriefcaseIcon, CalendarIcon } from "lucide-react"
 import Image from "next/image"
 
-// Define the experience data structure
 interface Experience {
   title: string
   company: string
@@ -15,10 +14,9 @@ interface Experience {
   period: string
   description: string
   skills: string[]
-  logo?: string // Make logo optional
+  logo?: string 
 }
 
-// Sample experience data - replace with your actual work experience
 const experiences: Experience[] = [
   {
     title: "Backend , Web Developer & SEO",
@@ -45,7 +43,6 @@ export default function Experience() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -152,7 +149,6 @@ export default function Experience() {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line with animation */}
             <motion.div 
               className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border origin-top"
               variants={timelineVariants}
@@ -160,7 +156,6 @@ export default function Experience() {
               animate={isInView ? "visible" : "hidden"}
             />
 
-            {/* Experience items */}
             <motion.div 
               className="space-y-12"
               variants={containerVariants}
@@ -178,17 +173,14 @@ export default function Experience() {
                     isEven ? "md:flex-row-reverse" : ""
                   }`}
                 >
-                  {/* Timeline dot with animation */}
                   <motion.div 
                     className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background z-10"
                     variants={dotVariants}
                   />
 
-                  {/* Content */}
                   <div className={`md:w-1/2 ${isEven ? "md:pl-12" : "md:pr-12"} pl-10 md:pl-0`}>
                     <div className="bg-card p-6 rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-shadow">
                       <div className="flex items-center gap-4 mb-4">
-                        {/* Company Logo with animation */}
                         {exp.logo && (
                           <motion.div 
                             className="flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-background/50 p-1 border border-border/50"
@@ -222,7 +214,6 @@ export default function Experience() {
                       
                       <p className="mb-4 text-muted-foreground">{exp.description}</p>
                       
-                      {/* Skills with staggered animation */}
                       <motion.div 
                         className="flex flex-wrap gap-2"
                         variants={skillsVariants}
