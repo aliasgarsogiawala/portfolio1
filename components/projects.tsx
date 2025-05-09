@@ -32,6 +32,15 @@ const projects = [
   },
   {
     id: 3,
+    title: "Tech Horizons Club",
+    description: "Co-Founder and Web Dev of THC. A club for all tech enthusiasts to learn and grow together.",
+    image: "/thc.png?height=400&width=600",
+    tags: ["Mext.js", "Tailwind Css", "Typescript"],
+    demoLink: "https://techhorizonsclub.com",
+    githubLink: "https://aliasgar.vercel.app/private-repo",
+  },
+  {
+    id: 4,
     title: "Purchase Order Generator",
     description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
     image: "/po.png?height=400&width=600",
@@ -40,7 +49,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
   },
   {
-    id: 4,
+    id: 5,
     title: "GitHub Last 3 Commits",
     description: "A place where you can fetch your or anyones last 3 public repo commits and it also provides you with a md code for you to embed it in your README.md.",
     image: "/l3.png?height=400&width=600",
@@ -49,7 +58,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
   },
   {
-    id: 5,
+    id: 6,
     title: "Multipurpose Website - React ",
     description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
     image: "/react.png?height=400&width=600",
@@ -58,7 +67,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
   {
-    id: 6,
+    id: 7,
     title: "Mini Python Projects",
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
