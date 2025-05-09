@@ -35,7 +35,7 @@ const projects = [
     title: "Tech Horizons Club",
     description: "Co-Founder and Web Dev of THC. A club for all tech enthusiasts to learn and grow together.",
     image: "/thc.png?height=400&width=600",
-    tags: ["Mext.js", "Tailwind Css", "Typescript"],
+    tags: ["Next.js", "Tailwind Css", "Typescript"],
     demoLink: "https://techhorizonsclub.com",
     githubLink: "https://aliasgar.vercel.app/private-repo",
   },
