@@ -75,7 +75,26 @@ const projects = [
     demoLink:"https://github.com/aliasgarsogiawala/Codes",
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
   },
-  
+  {
+    id: 8,
+    title: "90 Days",
+    description: "A comprehensive habit tracking app that helps users build consistency over 90 days, with progress visualization and accountability features.",
+    image: "/peng.png?height=400&width=600",
+    tags: ["Next js", "Typescript"],
+    demoLink: "#",
+    githubLink: "#",
+    comingSoon: false
+  },
+  {
+    id: 9,
+    title: "Planify - Smart Task Management",
+    description: "An AI-powered task management platform that helps prioritize tasks, schedule efficiently, and increase productivity through smart suggestions.",
+    image: "/peng.png?height=400&width=600",
+    tags: ["Next.js", "TypeScript", "OpenAI API", "Convex"],
+    demoLink: "#",
+    githubLink: "#",
+    comingSoon: false
+  }
 ]
 
 export default function Projects() {
@@ -148,9 +167,16 @@ export default function Projects() {
                         alt={project.title}
                         className="object-cover w-full h-full transition-transform"
                       />
+                      {project.comingSoon && (
+                        <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+                          <Badge variant="destructive" className="text-lg px-4 py-2 bg-primary/80 hover:bg-primary">
+                            Coming Soon
+                          </Badge>
+                        </div>
+                      )}
                     </motion.div>
                     <AnimatePresence>
-                      {hoveredProject === project.id && (
+                      {hoveredProject === project.id && !project.comingSoon && (
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
