@@ -81,8 +81,8 @@ const projects = [
     description: "A comprehensive habit tracking app that helps users build consistency over 90 days, with progress visualization and accountability features.",
     image: "/peng.png?height=400&width=600",
     tags: ["Next js", "Typescript"],
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: "https://aliasgar.vercel.app",
+    githubLink: "https://github.com/aliasgarsogiawala",
     comingSoon: false
   },
   {
@@ -91,8 +91,8 @@ const projects = [
     description: "An AI-powered task management platform that helps prioritize tasks, schedule efficiently, and increase productivity through smart suggestions.",
     image: "/peng.png?height=400&width=600",
     tags: ["Next.js", "TypeScript", "OpenAI API", "Convex"],
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: "https://aliasgar.vercel.app",
+    githubLink: "https://github.com/aliasgarsogiawala",
     comingSoon: false
   }
 ]
