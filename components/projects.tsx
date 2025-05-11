@@ -125,6 +125,9 @@ export default function Projects() {
     },
   }
 
+  // Function to determine if a project is a major project
+  const isMajorProject = (id: number) => id <= 3
+
   return (
     <section id="projects" className="py-20 bg-background/50">
       <div className="container px-4 md:px-6">
@@ -141,13 +144,14 @@ export default function Projects() {
             </p>
           </motion.div>
 
+          {/* Featured Projects (1-3) */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {projects.map((project) => (
+            {projects.slice(0, 3).map((project) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
@@ -155,7 +159,7 @@ export default function Projects() {
                 onMouseLeave={() => setHoveredProject(null)}
                 className="relative"
               >
-                <Card className="h-full overflow-hidden group">
+                <Card className="h-full overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-border/50">
                   <div className="relative overflow-hidden">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
@@ -203,13 +207,13 @@ export default function Projects() {
                     </AnimatePresence>
                   </div>
                   <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+                    <CardDescription className="text-base">{project.description}</CardDescription>
                   </CardHeader>
                   <CardFooter>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary">
+                        <Badge key={tag} variant="secondary" className="text-sm">
                           {tag}
                         </Badge>
                       ))}
@@ -219,6 +223,96 @@ export default function Projects() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Other Projects (4-9) */}
+          <div className="mt-12">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-2xl font-semibold mb-6 text-center"
+            >
+              Other Projects
+            </motion.h3>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {projects.slice(3).map((project) => (
+                <motion.div
+                  key={project.id}
+                  variants={itemVariants}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                  className="relative"
+                >
+                  <Card className="h-full overflow-hidden group shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="relative overflow-hidden">
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        className="aspect-video overflow-hidden"
+                      >
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          className="object-cover w-full h-full transition-transform"
+                        />
+                        {project.comingSoon && (
+                          <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+                            <Badge variant="destructive" className="text-sm px-3 py-1 bg-primary/80 hover:bg-primary">
+                              Coming Soon
+                            </Badge>
+                          </div>
+                        )}
+                      </motion.div>
+                      <AnimatePresence>
+                        {hoveredProject === project.id && !project.comingSoon && (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute inset-0 bg-black/60 flex items-center justify-center"
+                          >
+                            <div className="flex gap-3">
+                              <Button size="sm" variant="secondary" className="text-xs" asChild>
+                                <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="mr-1 h-3 w-3" />
+                                  Demo
+                                </a>
+                              </Button>
+                              <Button size="sm" variant="outline" className="text-xs" asChild>
+                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                                  <Github className="mr-1 h-3 w-3" />
+                                  Code
+                                </a>
+                              </Button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                    <CardHeader className="p-4">
+                      <CardTitle className="text-lg font-medium">{project.title}</CardTitle>
+                      <CardDescription className="text-sm">{project.description}</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="p-4 pt-0">
+                      <div className="flex flex-wrap gap-1">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary" className="text-xs px-2 py-0">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
