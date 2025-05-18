@@ -49,7 +49,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/ParaDoc-dreamhacks",
   },
   {
-    id: 4,
+    id: 5,
     title: "Purchase Order Generator",
     description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
     image: "/po.png?height=400&width=600",
@@ -58,7 +58,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
   },
   {
-    id: 5,
+    id: 6,
     title: "GitHub Last 3 Commits",
     description: "A place where you can fetch your or anyones last 3 public repo commits and it also provides you with a md code for you to embed it in your README.md.",
     image: "/l3.png?height=400&width=600",
@@ -67,7 +67,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
   },
   {
-    id: 6,
+    id: 7,
     title: "Multipurpose Website - React ",
     description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
     image: "/react.png?height=400&width=600",
@@ -76,7 +76,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
   {
-    id: 7,
+    id: 8,
     title: "Mini Python Projects",
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
@@ -85,7 +85,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
   },
   {
-    id: 8,
+    id: 9,
     title: "90 Days",
     description: "A comprehensive habit tracking app that helps users build consistency over 90 days, with progress visualization and accountability features.",
     image: "/peng.png?height=400&width=600",
@@ -95,7 +95,7 @@ const projects = [
     comingSoon: false
   },
   {
-    id: 9,
+    id: 10,
     title: "Planify - Smart Task Management",
     description: "An AI-powered task management platform that helps prioritize tasks, schedule efficiently, and increase productivity through smart suggestions.",
     image: "/peng.png?height=400&width=600",
