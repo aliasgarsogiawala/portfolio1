@@ -41,6 +41,15 @@ const projects = [
   },
   {
     id: 4,
+    title: "ParaDoc",
+    description: "A Parallel Reality Simulation for Medical Decision-Making",
+    image: "/paradoc.png?height=400&width=600",
+    tags: ["Next.js", "Tailwind Css", "Clerk", "Javascript","Gemini API"],
+    demoLink: "https://paradocc.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/ParaDoc-dreamhacks",
+  },
+  {
+    id: 4,
     title: "Purchase Order Generator",
     description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
     image: "/po.png?height=400&width=600",
