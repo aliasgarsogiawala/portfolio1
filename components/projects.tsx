@@ -109,7 +109,10 @@ const projects = [
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  // Change this line
+  
+  // To this
+  const isInView = useInView(ref, { once: true, amount: 0.04, threshold: 0 })
 
   const containerVariants = {
     hidden: { opacity: 0 },
