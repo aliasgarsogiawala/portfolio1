@@ -134,8 +134,23 @@ export default function Hero() {
       }}
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-slate-400/[0.08] bg-[length:50px_50px]" />
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-slate-400/[0.1] bg-[length:40px_40px]" />
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgb(6 182 212 / 0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgb(6 182 212 / 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+        
+        {/* Particles */}
         <div ref={particlesRef} className="absolute inset-0 overflow-hidden" />
+        
+        {/* Floating Orbs */}
         <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-200/20 rounded-full blur-3xl z-0" />
 
         <motion.div
