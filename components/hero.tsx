@@ -212,7 +212,7 @@ export default function Hero() {
             variants={itemVariants}
             className="max-w-[700px] text-slate-700 md:text-xl"
           >
-            I create dope, functional, and accessible web experiences with modern technologies.
+            A passionate BSc IT student crafting innovative web solutions and bringing ideas to life through code.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8">
@@ -234,7 +234,7 @@ export default function Hero() {
             <a href="https://instagram.com/aliasgar.sogiawala" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Instagram className="w-6 h-6" />
             </a>
-            <a href="mailto:itsaliasgar@gmail.com" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <a href="mailto:itsaliasgar18@gmail.com" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Mail className="w-6 h-6" />
             </a>
           </motion.div>
