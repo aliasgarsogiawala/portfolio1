@@ -42,7 +42,7 @@ const projects = [
   {
     id: 4,
     title: "ParaDoc",
-    description: "A Parallel Reality Simulation for Medical Decision-Making",
+    description: "A Parallel Reality Simulation for Medical Decision-Making. Hackathon winning.",
     image: "/paradoc.png?height=400&width=600",
     tags: ["Next.js", "Tailwind Css", "Clerk", "Javascript","Gemini API"],
     demoLink: "https://paradocc.vercel.app/",
@@ -59,6 +59,15 @@ const projects = [
   },
   {
     id: 6,
+    title: "GitHub Punchcard",
+    description: "Visualize the hours and days you commit the most. Plug it into your readme",
+    image: "/punch.png?height=400&width=600",
+    tags: ["Vercel Edge API","GitHub API","Next.js", "Tailwind Css"],
+    demoLink: "https://punchcardwidget.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/punchcard-widget",
+  },
+  {
+    id: 7,
     title: "GitHub Last 3 Commits",
     description: "A place where you can fetch your or anyones last 3 public repo commits and it also provides you with a md code for you to embed it in your README.md.",
     image: "/l3.png?height=400&width=600",
@@ -67,7 +76,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
   },
   {
-    id: 7,
+    id: 8,
     title: "Multipurpose Website - React ",
     description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
     image: "/react.png?height=400&width=600",
@@ -76,7 +85,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
   {
-    id: 8,
+    id: 9,
     title: "Mini Python Projects",
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
@@ -85,7 +94,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
   },
   {
-    id: 9,
+    id: 10,
     title: "90 Days",
     description: "A comprehensive habit tracking app that helps users build consistency over 90 days, with progress visualization and accountability features.",
     image: "/peng.png?height=400&width=600",
@@ -95,7 +104,7 @@ const projects = [
     comingSoon: false
   },
   {
-    id: 10,
+    id: 11,
     title: "Planify - Smart Task Management",
     description: "An AI-powered task management platform that helps prioritize tasks, schedule efficiently, and increase productivity through smart suggestions.",
     image: "/peng.png?height=400&width=600",
@@ -141,7 +150,7 @@ export default function Projects() {
   const isMajorProject = (id: number) => id <= 3
 
   return (
-    <section id="projects" className="py-20 bg-background/50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-cyan-50 via-blue-50 to-sky-50">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="space-y-12">
           <motion.div
@@ -151,7 +160,7 @@ export default function Projects() {
             className="text-center space-y-4"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Projects</h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="mx-auto max-w-[700px] text-slate-600 md:text-xl">
               A selection of my recent work and personal projects.
             </p>
           </motion.div>
@@ -171,7 +180,7 @@ export default function Projects() {
                 onMouseLeave={() => setHoveredProject(null)}
                 className="relative"
               >
-                <Card className="h-full overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-border/50">
+                <Card className="h-full overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-cyan-200/50 bg-white/80 backdrop-blur-sm">
                   <div className="relative overflow-hidden">
                     <motion.div
                       whileHover={{ scale: 1.05 }}

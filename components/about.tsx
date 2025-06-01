@@ -9,7 +9,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section id="about" className="py-20 bg-background/50">
+    <section id="about" className="py-20 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -25,7 +25,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg"
+              className="absolute -bottom-6 -right-6 bg-cyan-600 text-white p-4 rounded-lg shadow-lg"
             >
               <p className="text-lg font-bold">3+ Years Experience</p>
             </motion.div>
@@ -39,7 +39,7 @@ export default function About() {
           >
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
-              <p className="text-muted-foreground">Full Stack Developer & UI/UX Enthusiast</p>
+              <p className="text-slate-600">Full Stack Developer & UI/UX Enthusiast</p>
             </div>
 
             <motion.div

@@ -35,20 +35,20 @@ export default function Header() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-background/90 backdrop-blur-md shadow-md" 
-          : "bg-background/50 backdrop-blur-sm"
+          ? "bg-white/90 backdrop-blur-md shadow-md border-b border-cyan-200/50" 
+          : "bg-white/60 backdrop-blur-sm"
       }`}
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex items-center justify-center rounded-full bg-primary w-8 h-8 text-primary-foreground font-bold transition-transform group-hover:scale-110">
+          <div className="flex items-center justify-center rounded-full bg-cyan-600 w-8 h-8 text-white font-bold transition-transform group-hover:scale-110">
             A
           </div>
           <span className="font-bold text-lg relative overflow-hidden">
             <span className="inline-block transition-transform duration-300 group-hover:translate-y-[-100%]">
               Aliasgar's Portfolio
             </span>
-            <span className="absolute top-0 left-0 inline-block translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0 text-primary">
+            <span className="absolute top-0 left-0 inline-block translate-y-[100%] transition-transform duration-300 group-hover:translate-y-0 text-cyan-600">
               Aliasgar's Portfolio
             </span>
           </span>
@@ -61,10 +61,10 @@ export default function Header() {
               href={item.href} 
               className="text-sm font-medium relative group"
             >
-              <span className="block transition-colors group-hover:text-primary">
+              <span className="block transition-colors group-hover:text-cyan-600">
                 {item.name}
               </span>
-              <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-cyan-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </nav>
@@ -78,7 +78,7 @@ export default function Header() {
             <Button 
               variant="outline" 
               size="sm" 
-              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all"
+              className="rounded-full bg-cyan-600 text-white border-cyan-600 hover:bg-cyan-700 hover:scale-105 transition-all"
             >
               <span className="relative overflow-hidden inline-block">
                 <span className="inline-block transition-transform duration-300 hover:translate-y-[-100%]">
@@ -92,7 +92,7 @@ export default function Header() {
           </a>
           
           <button 
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-background/10 text-foreground hover:bg-background/20 transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-cyan-100 text-slate-700 hover:bg-cyan-200 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -101,7 +101,7 @@ export default function Header() {
       </div>
       
       <motion.div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-[400px] border-b border-border/40' : 'max-h-0'}`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-[400px] border-b border-cyan-200/50' : 'max-h-0'}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -116,7 +116,7 @@ export default function Header() {
             >
               <Link 
                 href={item.href} 
-                className="text-sm font-medium block py-2 hover:text-primary transition-colors"
+                className="text-sm font-medium block py-2 hover:text-cyan-600 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
@@ -137,7 +137,7 @@ export default function Header() {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="rounded-full bg-primary text-primary-foreground w-full"
+                className="rounded-full bg-cyan-600 text-white border-cyan-600 w-full"
               >
                 Download CV
               </Button>

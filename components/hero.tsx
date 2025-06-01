@@ -19,7 +19,7 @@ export default function Hero() {
     if (particlesContainer) {
       for (let i = 0; i < 50; i++) {
         const particle = document.createElement("div")
-        particle.className = "absolute rounded-full bg-primary/20"
+        particle.className = "absolute rounded-full bg-cyan-200/40"
 
         const size = Math.random() * 16 + 4
         particle.style.width = `${size}px`
@@ -57,19 +57,24 @@ export default function Hero() {
     const techIconsContainer = document.createElement("div")
     techIconsContainer.className = "absolute inset-0 pointer-events-none"
     heroRef.current?.appendChild(techIconsContainer)
-    
-    const techIcons = ["react", "nextdotjs", "typescript", "tailwindcss","git","framer","canva","figma","javascript","python"]
-    
+
+    const techIcons = [
+      "react", "nextdotjs", "typescript", "tailwindcss",
+      "git", "framer", "canva", "figma", "javascript", "python",
+      "docker", "postgresql", "firebase", "vercel",
+      "huggingface", "openai", "supabase" , "python"
+    ]
+
     techIcons.forEach((icon, index) => {
       const iconElement = document.createElement("div")
       iconElement.className = "absolute opacity-20"
-      iconElement.innerHTML = `<img src="https://cdn.simpleicons.org/${icon}/currentColor" alt="${icon}" class="w-12 h-12" />`
-      
+      iconElement.innerHTML = `<img src="https://cdn.simpleicons.org/${icon}" alt="${icon}" class="w-12 h-12 drop-shadow" />`
+
       iconElement.style.left = `${Math.random() * 80 + 10}%`
       iconElement.style.top = `${Math.random() * 80 + 10}%`
-      
+
       techIconsContainer.appendChild(iconElement)
-      
+
       gsap.to(iconElement, {
         y: Math.random() * 100 - 50,
         x: Math.random() * 100 - 50,
@@ -81,7 +86,7 @@ export default function Hero() {
         delay: index * 0.5,
       })
     })
-    
+
     return () => {
       if (particlesRef.current) {
         gsap.killTweensOf(particlesRef.current.children)
@@ -122,37 +127,34 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative h-screen flex flex-col justify-center items-center overflow-hidden"
+      className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-gradient-to-br from-sky-100 via-cyan-50 to-blue-100 text-slate-800"
       style={{
-        background: "linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)",
         backgroundSize: "200% 200%",
         backgroundPosition: "0% 0%",
       }}
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:50px_50px]" />
+        <div className="absolute inset-0 bg-grid-slate-400/[0.08] bg-[length:50px_50px]" />
         <div ref={particlesRef} className="absolute inset-0 overflow-hidden" />
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-200/20 rounded-full blur-3xl z-0" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.1)_0,transparent_70%)]" />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 2 }}
-          className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ duration: 2, delay: 0.5 }}
-          className="absolute bottom-1/4 -right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
-        />
-        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.3 }}
+          transition={{ duration: 2 }}
+          className="absolute top-1/4 -left-20 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ duration: 2, delay: 0.5 }}
+          className="absolute bottom-1/4 -right-20 w-80 h-80 bg-cyan-200/40 rounded-full blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
           transition={{ duration: 2, delay: 1 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"
         />
       </div>
 
@@ -165,7 +167,7 @@ export default function Hero() {
         >
           <motion.div 
             variants={itemVariants}
-            className="mb-6 overflow-hidden rounded-full border-4 border-primary/30"
+            className="mb-6 overflow-hidden rounded-full border-4 border-cyan-300/50"
           >
             <img 
               src="/about.jpeg" 
@@ -174,17 +176,17 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="overflow-hidden">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+          <motion.div variants={itemVariants}>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight">
               <motion.span 
                 variants={itemVariants}
-                className="text-primary"
+                className="text-slate-800"
               >
                 Hello, I&apos;m{" "}
               </motion.span>
               <motion.span
                 variants={itemVariants}
-                className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-blue-600"
               >
                 Aliasgar Sogiawala
               </motion.span>
@@ -193,37 +195,31 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="max-w-[700px] text-muted-foreground md:text-xl"
+            className="max-w-[700px] text-slate-700 md:text-xl"
           >
-            I create Dope, functional, and accessible web experiences with modern technologies.
+            I create dope, functional, and accessible web experiences with modern technologies.
           </motion.p>
-          
-          <motion.div 
-            variants={itemVariants}
-            className="mt-8"
-          >
+
+          <motion.div variants={itemVariants} className="mt-8">
             <Link
               href="#about"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center justify-center rounded-full bg-slate-800 text-white px-8 py-3 text-lg font-medium hover:bg-slate-700 transition-colors shadow-lg"
             >
               Get to know me
             </Link>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex space-x-4 mt-6"
-          >
-            <a href="https://github.com/aliasgarsogiawala" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+          <motion.div variants={itemVariants} className="flex space-x-4 mt-6">
+            <a href="https://github.com/aliasgarsogiawala" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Github className="w-6 h-6" />
             </a>
-            <a href="https://www.linkedin.com/in/aliasgar-sogiawala-09b24a1b8/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/aliasgar-sogiawala-09b24a1b8/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="https://instagram.com/aliasgar.sogiawala" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://instagram.com/aliasgar.sogiawala" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Instagram className="w-6 h-6" />
             </a>
-            <a href="mailto:itsaliasgar@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="mailto:itsaliasgar@gmail.com" className="text-slate-600 hover:text-slate-800 transition-colors">
               <Mail className="w-6 h-6" />
             </a>
           </motion.div>
@@ -243,9 +239,7 @@ export default function Hero() {
         className="absolute bottom-10"
       >
         <motion.div
-          animate={{
-            y: [0, 10, 0],
-          }}
+          animate={{ y: [0, 10, 0] }}
           transition={{
             duration: 1.5,
             repeat: Number.POSITIVE_INFINITY,
@@ -253,7 +247,7 @@ export default function Hero() {
             ease: "easeInOut",
           }}
         >
-          <ArrowDown className="h-8 w-8 text-primary" />
+          <ArrowDown className="h-8 w-8 text-slate-600" />
         </motion.div>
       </motion.div>
     </section>

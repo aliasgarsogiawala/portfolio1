@@ -133,7 +133,7 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="py-20 bg-gradient-to-br from-blue-100 via-sky-100 to-cyan-100">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="space-y-12">
           <motion.div
@@ -143,7 +143,7 @@ export default function Experience() {
             className="text-center space-y-4"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Work Experience</h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="mx-auto max-w-[700px] text-slate-600 md:text-xl">
               My professional journey and career highlights.
             </p>
           </motion.div>

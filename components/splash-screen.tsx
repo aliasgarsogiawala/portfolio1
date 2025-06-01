@@ -67,7 +67,7 @@ export default function SplashScreen() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-sky-100 via-cyan-50 to-blue-100 overflow-hidden"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -80,7 +80,7 @@ export default function SplashScreen() {
             transition={{ duration: 0.5 }}
           >
             <motion.div
-              className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-4xl font-bold mb-4"
+              className="w-24 h-24 rounded-full bg-cyan-600 flex items-center justify-center text-white text-4xl font-bold mb-4"
               animate={{ 
                 rotate: [0, 10, 0, -10, 0],
                 scale: [1, 1.1, 1]
@@ -97,7 +97,7 @@ export default function SplashScreen() {
             </motion.div>
             
             <motion.div 
-              className="bg-black/80 rounded-md p-4 min-w-[300px] border border-primary/30"
+              className="bg-white/90 backdrop-blur-sm rounded-md p-4 min-w-[300px] border border-cyan-300/50 shadow-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -106,31 +106,31 @@ export default function SplashScreen() {
                 <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                <div className="text-xs text-gray-400 ml-2">portfolio.sh</div>
+                <div className="text-xs text-slate-500 ml-2">portfolio.sh</div>
               </div>
               
-              <div className="font-mono text-green-400 text-sm">
-                <span className="text-blue-400">$ </span>
-                <span className="text-yellow-400">init </span>
+              <div className="font-mono text-cyan-600 text-sm">
+                <span className="text-blue-600">$ </span>
+                <span className="text-sky-600">init </span>
                 <span>{nameText}</span>
                 {!nameIsDone && (
                   <motion.span
                     animate={{ opacity: [0, 1] }}
                     transition={{ repeat: Infinity, duration: 0.8 }}
-                    className="inline-block w-2 h-4 bg-white ml-1"
+                    className="inline-block w-2 h-4 bg-cyan-600 ml-1"
                   ></motion.span>
                 )}
               </div>
               
-              <div className="font-mono text-green-400 text-sm mt-1">
-                <span className="text-blue-400">$ </span>
-                <span className="text-yellow-400">role </span>
+              <div className="font-mono text-cyan-600 text-sm mt-1">
+                <span className="text-blue-600">$ </span>
+                <span className="text-sky-600">role </span>
                 <span>{roleText}</span>
                 {nameIsDone && (
                   <motion.span
                     animate={{ opacity: [0, 1] }}
                     transition={{ repeat: Infinity, duration: 0.8 }}
-                    className="inline-block w-2 h-4 bg-white ml-1"
+                    className="inline-block w-2 h-4 bg-cyan-600 ml-1"
                   ></motion.span>
                 )}
               </div>

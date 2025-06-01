@@ -58,7 +58,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-gradient-to-br from-blue-100 via-cyan-100 to-sky-100">
       <div className="container px-4 md:px-6">
         <div ref={ref} className="space-y-12">
           <motion.div
@@ -68,7 +68,7 @@ export default function Contact() {
             className="text-center space-y-4"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get In Touch</h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="mx-auto max-w-[700px] text-slate-600 md:text-xl">
               Have a project in mind or just want to say hello? Feel free to reach out!
             </p>
           </motion.div>
@@ -82,7 +82,7 @@ export default function Contact() {
             >
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">Contact Information</h3>
-                <p className="text-muted-foreground">
+                <p className="text-slate-600">
                   Fill out the form or contact me directly using the information below.
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function Contact() {
                     transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                     className="flex items-center space-x-4"
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center">
                       {item.icon}
                     </div>
                     <span>{item.text}</span>
