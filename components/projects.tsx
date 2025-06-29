@@ -10,7 +10,8 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 
-const projects = [
+// Major Websites
+const majorWebsites = [
   {
     id: 1,
     title: "Zillionite: Wealth Creation Platform",
@@ -48,17 +49,12 @@ const projects = [
     demoLink: "https://paradocc.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/ParaDoc-dreamhacks",
   },
+]
+
+// GitHub Widgets
+const githubWidgets = [
   {
     id: 5,
-    title: "Purchase Order Generator",
-    description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
-    image: "/po.png?height=400&width=600",
-    tags: ["React.js", "Css", "jsPDF", "Javascript"],
-    demoLink: "https://purchase-order-gen.vercel.app/",
-    githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
-  },
-  {
-    id: 6,
     title: "GitHub Punchcard",
     description: "Visualize the hours and days you commit the most. Plug it into your readme",
     image: "/punch.png?height=400&width=600",
@@ -67,7 +63,7 @@ const projects = [
     githubLink: "https://github.com/aliasgarsogiawala/punchcard-widget",
   },
   {
-    id: 7,
+    id: 6,
     title: "GitHub Last 3 Commits",
     description: "A place where you can fetch your or anyones last 3 public repo commits and it also provides you with a md code for you to embed it in your README.md.",
     image: "/l3.png?height=400&width=600",
@@ -75,23 +71,40 @@ const projects = [
     demoLink: "https://last-3-commits.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
   },
+]
+
+// Console Codes
+const consoleCodes = [
   {
-    id: 8,
-    title: "Multipurpose Website - React ",
-    description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
-    image: "/react.png?height=400&width=600",
-    tags: ["React.js", "Css", "Html", "Javascript"],
-    demoLink: "https://react-multipurpose.vercel.app/",
-    githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
-  },
-  {
-    id: 9,
+    id: 7,
     title: "Mini Python Projects",
     description: "Python Mini Projects and Mini Games.",
     image: "/python.png?height=400&width=600",
     tags: ["Python" , "BeautifulSoup","Web Scrapping"],
     demoLink:"https://github.com/aliasgarsogiawala/Codes",
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
+  },
+]
+
+// Other Projects
+const otherProjects = [
+  {
+    id: 8,
+    title: "Purchase Order Generator",
+    description: "A Purchase Order Generator using Javascript , React.js making use of JsPDF.",
+    image: "/po.png?height=400&width=600",
+    tags: ["React.js", "Css", "jsPDF", "Javascript"],
+    demoLink: "https://purchase-order-gen.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/purchase-order",
+  },
+  {
+    id: 9,
+    title: "Multipurpose Website - React ",
+    description: "React Web App with features : Weather Update , JS Code Editor , Currency Converter and Voice Translation.",
+    image: "/react.png?height=400&width=600",
+    tags: ["React.js", "Css", "Html", "Javascript"],
+    demoLink: "https://react-multipurpose.vercel.app/",
+    githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
   {
     id: 10,
