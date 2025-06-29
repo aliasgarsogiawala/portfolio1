@@ -88,8 +88,7 @@ const Button = ({ children, size = "default", variant = "default", className = "
   )
 }
 
-// Major Websites
-const majorWebsites = [
+const projects = [
   {
     id: 1,
     title: "Zillionite: Wealth Creation Platform",
@@ -127,10 +126,6 @@ const majorWebsites = [
     demoLink: "https://paradocc.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/ParaDoc-dreamhacks",
   },
-]
-
-// GitHub Widgets
-const githubWidgets = [
   {
     id: 5,
     title: "GitHub Punchcard",
@@ -149,10 +144,6 @@ const githubWidgets = [
     demoLink: "https://last-3-commits.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/last-3-commits",
   },
-]
-
-// Console Codes
-const consoleCodes = [
   {
     id: 7,
     title: "Mini Python Projects",
@@ -162,10 +153,6 @@ const consoleCodes = [
     demoLink: "https://github.com/aliasgarsogiawala/Codes",
     githubLink: "https://github.com/aliasgarsogiawala/Codes"
   },
-]
-
-// Other Projects
-const otherProjects = [
   {
     id: 8,
     title: "Purchase Order Generator",
@@ -184,26 +171,6 @@ const otherProjects = [
     demoLink: "https://react-multipurpose.vercel.app/",
     githubLink: "https://github.com/aliasgarsogiawala/React_Multipurpose",
   },
-  {
-    id: 10,
-    title: "90 Days Habit Tracker",
-    description: "A comprehensive habit tracking app that helps users build consistency over 90 days, with progress visualization and accountability features.",
-    image: "/peng.png?height=400&width=600",
-    tags: ["Next.js", "TypeScript"],
-    demoLink: "https://aliasgar.vercel.app",
-    githubLink: "https://github.com/aliasgarsogiawala",
-    comingSoon: true
-  },
-  {
-    id: 11,
-    title: "Planify - Smart Task Management",
-    description: "An AI-powered task management platform that helps prioritize tasks, schedule efficiently, and increase productivity through smart suggestions.",
-    image: "/peng.png?height=400&width=600",
-    tags: ["Next.js", "TypeScript", "OpenAI API", "Convex"],
-    demoLink: "https://aliasgar.vercel.app",
-    githubLink: "https://github.com/aliasgarsogiawala",
-    comingSoon: true
-  }
 ]
 
 export default function Projects() {
@@ -234,83 +201,10 @@ export default function Projects() {
     },
   }
 
-  // Helper function to render project cards
-  const renderProjectCard = (project: any, size: 'large' | 'small' = 'large') => (
-    <motion.div
-      key={project.id}
-      variants={itemVariants}
-      onMouseEnter={() => setHoveredProject(project.id)}
-      onMouseLeave={() => setHoveredProject(null)}
-      className="relative"
-    >
-      <Card className={`h-full overflow-hidden group ${size === 'large' ? 'shadow-md hover:shadow-xl' : 'shadow-sm hover:shadow-md'} transition-shadow duration-300 border-2 border-cyan-200/50 bg-white/80 backdrop-blur-sm`}>
-        <div className="relative overflow-hidden">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="aspect-video overflow-hidden"
-          >
-            <img
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              className="object-cover w-full h-full transition-transform"
-            />
-            {project.comingSoon && (
-              <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                <Badge variant="destructive" className={`${size === 'large' ? 'text-lg px-4 py-2' : 'text-sm px-3 py-1'} bg-cyan-600/80 hover:bg-cyan-600`}>
-                  Coming Soon
-                </Badge>
-              </div>
-            )}
-          </motion.div>
-          <AnimatePresence>
-            {hoveredProject === project.id && !project.comingSoon && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-black/60 flex items-center justify-center"
-              >
-                <div className={`flex ${size === 'large' ? 'gap-4' : 'gap-3'}`}>
-                  <Button size="sm" variant="secondary" className={size === 'small' ? 'text-xs' : ''} asChild>
-                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className={`mr-2 ${size === 'large' ? 'h-4 w-4' : 'h-3 w-3 mr-1'}`} />
-                      Demo
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="outline" className={size === 'small' ? 'text-xs' : ''} asChild>
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className={`mr-2 ${size === 'large' ? 'h-4 w-4' : 'h-3 w-3 mr-1'}`} />
-                      Code
-                    </a>
-                  </Button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-        <CardHeader className={size === 'large' ? '' : 'p-4'}>
-          <CardTitle className={size === 'large' ? 'text-xl font-bold text-slate-800' : 'text-lg font-medium text-slate-800'}>{project.title}</CardTitle>
-          <CardDescription className={`${size === 'large' ? 'text-base' : 'text-sm'} text-slate-600`}>{project.description}</CardDescription>
-        </CardHeader>
-        <CardFooter className={size === 'large' ? '' : 'p-4 pt-0'}>
-          <div className={`flex flex-wrap ${size === 'large' ? 'gap-2' : 'gap-1'}`}>
-            {project.tags.map((tag: string) => (
-              <Badge key={tag} variant="secondary" className={`${size === 'large' ? 'text-sm' : 'text-xs px-2 py-0'} bg-cyan-100 text-cyan-800 hover:bg-cyan-200`}>
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </CardFooter>
-      </Card>
-    </motion.div>
-  )
-
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-cyan-50 via-blue-50 to-sky-50">
-      <div className="container px-4 md:px-6">
-        <div ref={ref} className="space-y-16">
+      <div className="container mx-auto px-6">
+        <div ref={ref} className="space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -321,168 +215,87 @@ export default function Projects() {
               My Projects
             </h2>
             <p className="mx-auto max-w-[700px] text-slate-600 md:text-xl">
-              A selection of my recent work and personal projects categorized by type and technology.
+              A selection of my recent work and personal projects showcasing my skills and creativity.
             </p>
           </motion.div>
 
-          {/* Major Websites */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center space-y-2"
-            >
-              <h3 className="text-2xl font-semibold text-slate-800">🌐 Major Websites</h3>
-              <p className="text-slate-600">Full-scale web applications and platforms</p>
-            </motion.div>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            >
-              {majorWebsites.map((project) => renderProjectCard(project, 'large'))}
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center border-t border-cyan-200 pt-6"
-            >
-              <p className="text-slate-600 text-sm">
-                💡 To view all my major projects and collaborations, check out my{" "}
-                <Link 
-                  href="https://github.com/aliasgarsogiawala" 
-                  target="_blank" 
-                  className="text-cyan-600 hover:text-cyan-700 underline font-medium transition-colors"
-                >
-                  GitHub Profile
-                </Link>
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {projects.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+                className="relative"
+              >
+                <Card className="h-full overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-cyan-200/50 bg-white/80 backdrop-blur-sm">
+                  <div className="relative overflow-hidden">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                      className="aspect-video overflow-hidden"
+                    >
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        className="object-cover w-full h-full transition-transform"
+                      />
+                    </motion.div>
+                    <AnimatePresence>
+                      {hoveredProject === project.id && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute inset-0 bg-black/60 flex items-center justify-center"
+                        >
+                          <div className="flex gap-4">
+                            <Button size="sm" variant="secondary" asChild>
+                              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Demo
+                              </a>
+                            </Button>
+                            <Button size="sm" variant="outline" asChild>
+                              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                                <Github className="mr-2 h-4 w-4" />
+                                Code
+                              </a>
+                            </Button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold text-slate-800">{project.title}</CardTitle>
+                    <CardDescription className="text-base text-slate-600">{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-sm bg-cyan-100 text-cyan-800 hover:bg-cyan-200">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          {/* GitHub Widgets */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center space-y-2"
-            >
-              <h3 className="text-2xl font-semibold text-slate-800">🔧 GitHub Widgets</h3>
-              <p className="text-slate-600">Useful tools and widgets for developers</p>
-            </motion.div>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            >
-              {githubWidgets.map((project) => renderProjectCard(project, 'small'))}
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-center border-t border-cyan-200 pt-6"
-            >
-              <p className="text-slate-600 text-sm">
-                🛠️ More GitHub utilities and developer tools available on my{" "}
-                <Link 
-                  href="https://github.com/aliasgarsogiawala" 
-                  target="_blank" 
-                  className="text-cyan-600 hover:text-cyan-700 underline font-medium transition-colors"
-                >
-                  GitHub Profile
-                </Link>
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Console Codes */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center space-y-2"
-            >
-              <h3 className="text-2xl font-semibold text-slate-800">💻 Console Codes</h3>
-              <p className="text-slate-600">Python scripts, automation tools, and console applications</p>
-            </motion.div>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {consoleCodes.map((project) => renderProjectCard(project, 'small'))}
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-center border-t border-cyan-200 pt-6"
-            >
-              <p className="text-slate-600 text-sm">
-                🐍 Explore more Python scripts, automation tools, and console applications on my{" "}
-                <Link 
-                  href="https://github.com/aliasgarsogiawala" 
-                  target="_blank" 
-                  className="text-cyan-600 hover:text-cyan-700 underline font-medium transition-colors"
-                >
-                  GitHub Profile
-                </Link>
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Other Projects */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-center space-y-2"
-            >
-              <h3 className="text-2xl font-semibold text-slate-800">🚀 Other Projects</h3>
-              <p className="text-slate-600">Experimental projects, learning exercises, and coming soon</p>
-            </motion.div>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {otherProjects.map((project) => renderProjectCard(project, 'small'))}
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-center border-t border-cyan-200 pt-6"
-            >
-              <p className="text-slate-600 text-sm">
-                ⚡ Discover more diverse projects, experiments, and learning exercises on my{" "}
-                <Link 
-                  href="https://github.com/aliasgarsogiawala" 
-                  target="_blank" 
-                  className="text-cyan-600 hover:text-cyan-700 underline font-medium transition-colors"
-                >
-                  GitHub Profile
-                </Link>
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Final CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex justify-center pt-12 border-t border-cyan-200"
+            className="flex justify-center pt-8"
           >
             <Link 
               href="https://github.com/aliasgarsogiawala" 
@@ -491,7 +304,7 @@ export default function Projects() {
               className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium hover:scale-105 transform"
             >
               <Github className="mr-3 h-6 w-6" />
-              View All Projects on GitHub
+              View More on GitHub
             </Link>
           </motion.div>
         </div>
